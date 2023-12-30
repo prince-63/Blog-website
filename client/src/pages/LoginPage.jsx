@@ -8,7 +8,6 @@ const LoginPage = () => {
     const [redirect, setRedirect] = useState(false);
     const { setUserInfo } = useContext(UserContext);
 
-
     async function login(event) {
         event.preventDefault();
         const response = await fetch("http://localhost:4000/user/login", {
