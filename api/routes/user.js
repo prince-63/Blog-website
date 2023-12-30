@@ -1,6 +1,6 @@
 import express from "express";
-import register from "../middleware/register.js";
-import login from "../middleware/login.js";
+import register from "../middleware/auth/register.js";
+import login from "../middleware/auth/login.js";
 
 const route = express.Router();
 

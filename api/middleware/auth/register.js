@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import user from "../model/user.js";
+import user from "../../model/user.js";
 
 const salt = bcrypt.genSaltSync(10);
 

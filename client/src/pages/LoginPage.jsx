@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
+import { Navigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [redirect, setRedirect] = useState(false);
     const { setUserInfo } = useContext(UserContext);
 
 
@@ -20,9 +22,15 @@ const LoginPage = () => {
             response.json().then((userInformation) => {
                 setUserInfo(userInformation);
             });
+            setRedirect(true);
+            alert("LOGIN SUCESSFULL.");
         } else {
             alert("LOGIN FAILED.");
         }
+    }
+
+    if (redirect) {
+        return <Navigate to={"/create"} />;
     }
 
     return (
