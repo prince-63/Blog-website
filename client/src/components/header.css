@@ -1,0 +1,28 @@
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 60px;
+    background-color: #e3f2fd;
+    display: flex;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.list li a {
+    color: #1DA1F2;
+}

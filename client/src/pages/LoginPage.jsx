@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import "./loginPage.css";
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -22,9 +23,9 @@ const LoginPage = () => {
                 setUserInfo(userInformation);
             });
             setRedirect(true);
-            alert("LOGIN SUCESSFULL.");
+            console.log("LOGIN SUCCESS.");
         } else {
-            alert("LOGIN FAILED.");
+            console.log("LOGIN FAILED.");
         }
     }
 
@@ -33,22 +34,43 @@ const LoginPage = () => {
     }
 
     return (
-        <form onSubmit={login}>
-            <h1>login</h1>
-            <input
-                type="text"
-                placeholder="username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-            />
-            <button>login</button>
-        </form>
+        <div className="login_page">
+            <div className="login_container">
+                <div className="form_container">
+                    <form onSubmit={login}>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="username"
+                                onChange={(event) =>
+                                    setUsername(event.target.value)
+                                }
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                placeholder="password"
+                                onChange={(event) =>
+                                    setPassword(event.target.value)
+                                }
+                                required
+                            />
+                        </div>
+                        <div>
+                            <button type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <span>
+                        You have no account?{" "}
+                        <Link to={"/register"}>Register</Link>
+                    </span>
+                </div>
+            </div>
+        </div>
     );
 };
 

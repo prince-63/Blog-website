@@ -5,6 +5,8 @@ import post from "../../model/post.js";
 const SECRET_KEY = process.env.SECRET_KEY;
 
 const createPost = async (req, res) => {
+    console.log(req.file);
+    console.log(req.body);
     const {originalname, path} = req.file;
     const parts = originalname.split('.');
     const exact = parts[parts.length - 1];

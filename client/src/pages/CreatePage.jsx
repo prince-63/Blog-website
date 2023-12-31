@@ -1,70 +1,8 @@
-/*import React, { useState } from "react";
-
-const CreatePage = () => {
-    const [title, setTitle] = useState("");
-    const [summary, setSummary] = useState("");
-    const [file, setFile] = useState("");
-    const [content, setContent] = useState("");
-
-    async function createNewPost(event) {
-        const data = new FormData();
-        data.set("title", title);
-        data.set("summary", summary);
-        data.set("file", file[0]);
-        data.set("content", content);
-        event.preventDefault();
-
-        const response = await fetch("http://localhost:4000/post", {
-            method: "POST",
-            body: data,
-            credentials: "include",
-        });
-        if (response.ok) {
-            alert("POST CREATED.");
-        }
-    }
-
-    console.log(file);
-
-    return (
-        <form onSubmit={createNewPost}>
-            <input
-                type="title"
-                placeholder="title"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-            />
-            <input
-                type="summary"
-                placeholder="summary"
-                value={summary}
-                onChange={(event) => setSummary(event.target.value)}
-            />
-            <input
-                type="file"
-                placeholder="file"
-                value={file}
-                onChange={(event) => setFile(event.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="content"
-                value={content}
-                onChange={(event) => setContent(event.target.value)}
-            />
-            <button>post</button>
-        </form>
-    );
-};
-
-export default CreatePage;
-
-*/
-
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "../components/Editor";
+import "./createPage.css";
 
 export default function CreatePost() {
     const [title, setTitle] = useState("");
@@ -93,22 +31,45 @@ export default function CreatePost() {
         return <Navigate to={"/"} />;
     }
     return (
-        <form onSubmit={createNewPost} >
-            <input
-                type="title"
-                placeholder={"Title"}
-                value={title}
-                onChange={(ev) => setTitle(ev.target.value)}
-            />
-            <input
-                type="summary"
-                placeholder={"Summary"}
-                value={summary}
-                onChange={(ev) => setSummary(ev.target.value)}
-            />
-            <input type="file" name="file" onChange={(ev) => setFiles(ev.target.files)} />
-            <Editor value={content} onChange={setContent} />
-            <button style={{ marginTop: "5px" }}>Create post</button>
-        </form>
+        <div className="create_page">
+            <div className="create_page_form_container">
+                <div className="create_page_title">
+                    <h4>Create Post</h4>
+                </div>
+                <form onSubmit={createNewPost}>
+                    <div>
+                        <input
+                            type="title"
+                            placeholder={"Title"}
+                            value={title}
+                            onChange={(ev) => setTitle(ev.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="summary"
+                            placeholder={"Summary"}
+                            value={summary}
+                            onChange={(ev) => setSummary(ev.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="file"
+                            name="file"
+                            onChange={(ev) => setFiles(ev.target.files)}
+                        />
+                    </div>
+                    <div>
+                        <Editor value={content} onChange={setContent} />
+                    </div>
+                    <div>
+                        <button style={{ marginTop: "5px" }}>
+                            Create post
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 }
