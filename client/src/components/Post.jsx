@@ -14,7 +14,7 @@ const Post = ({ _id, title, summary, cover, content, createdAt, author }) => {
                     />
                 </div>
                 <div className="post_content">
-                    <h4>{title}</h4>
+                    <Link to={`/post/${_id}`}><h4>{title}</h4></Link>
                     <p>{summary}</p>
                 </div>
             </div>

@@ -7,6 +7,7 @@ const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(false);
+    const [isLogin, setLogin] = useState(false);
     const { setUserInfo } = useContext(UserContext);
 
     async function login(event) {
@@ -26,11 +27,16 @@ const LoginPage = () => {
             console.log("LOGIN SUCCESS.");
         } else {
             console.log("LOGIN FAILED.");
+            setLogin(true);
         }
     }
 
     if (redirect) {
-        return <Navigate to={"/create"} />;
+        return <Navigate to={"/"} />;
+    }
+
+    if (isLogin) {
+        return <Navigate to={"/register"} />;
     }
 
     return (

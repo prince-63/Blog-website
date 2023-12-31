@@ -10,6 +10,7 @@ export default function CreatePost() {
     const [content, setContent] = useState("");
     const [files, setFiles] = useState("");
     const [redirect, setRedirect] = useState(false);
+
     async function createNewPost(ev) {
         const data = new FormData();
         data.set("title", title);
@@ -30,6 +31,7 @@ export default function CreatePost() {
     if (redirect) {
         return <Navigate to={"/"} />;
     }
+
     return (
         <div className="create_page">
             <div className="create_page_form_container">

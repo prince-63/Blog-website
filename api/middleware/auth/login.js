@@ -11,6 +11,11 @@ const login = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     const userDocument = await user.findOne({ username });
+
+    if(!userDocument) {
+        return res.status(400).json("wrong credentials");
+    }
+
     const checkPasswordMatchOrNot = bcrypt.compareSync(password, userDocument.password);
 
     if (checkPasswordMatchOrNot) {
