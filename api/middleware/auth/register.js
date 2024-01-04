@@ -1,16 +1,16 @@
 import bcrypt from "bcrypt";
-import user from "../../model/user.js";
+import User from "../../model/User.js";
 
 const salt = bcrypt.genSaltSync(10);
 
-const register = async (req, res) => {
+const Register = async (req, res) => {
     const name = req.body.name;
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
    
     try {
-        const userDocument = await user.create({
+        const userDocument = await User.create({
             name,
             username,
             email,
@@ -24,4 +24,4 @@ const register = async (req, res) => {
     }
 }
 
-export default register;
+export default Register;

@@ -5,7 +5,7 @@ dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-const profile = async (req, res) => {
+const Profile = async (req, res) => {
     const { token } = req.cookies;
 
     if (!token) {
@@ -15,9 +15,8 @@ const profile = async (req, res) => {
     jwt.verify(token, SECRET_KEY, {}, async (err, info) => {
         if (err) throw err;
 
-        console.log(info);
         res.json(info);
     })
 }
 
-export default profile;
+export default Profile;

@@ -1,44 +1,39 @@
-.post_container {
-    padding: 20px;
-    width: 80%;
-    margin: 0 auto;
+.post_section {
+    width: 250px;
+    height: 370px;
     display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     align-items: center;
-    justify-content: space-evenly;
+    gap: 5px;
+    margin: 10px;
 }
 
-.post_container .post_section {
-    width: 740px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px;
+.post_section a {
+    color: black;
 }
 
 .post_section .post_image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+    width: 250px;
+    height: 200px;
 }
 
 .post_section .post_image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 250px;
+    height: 200px;
 }
 
 .post_section .post_content {
-    padding: 0px 20px 20px 20px;
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
 }
 
 .post_section .post_content h4 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .post_section .post_content p {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 14px;
 }

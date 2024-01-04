@@ -1,18 +1,18 @@
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
-import user from "../../model/user.js";
+import User from "../../model/User.js";
 import jwt from "jsonwebtoken";
 
 dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-const login = async (req, res) => {
+const Login = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    const userDocument = await user.findOne({ username });
+    const userDocument = await User.findOne({ username });
 
-    if(!userDocument) {
+    if (!userDocument) {
         return res.status(400).json("wrong credentials");
     }
 
@@ -34,4 +34,4 @@ const login = async (req, res) => {
     }
 }
 
-export default login;
+export default Login;

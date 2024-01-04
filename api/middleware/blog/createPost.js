@@ -1,10 +1,10 @@
 import fs from 'fs';
 import jwt from 'jsonwebtoken';
-import post from "../../model/post.js";
+import Post from "../../model/Post.js";
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-const createPost = async (req, res) => {
+const CreatePost = async (req, res) => {
     console.log(req.file);
     console.log(req.body);
     const {originalname, path} = req.file;
@@ -21,7 +21,7 @@ const createPost = async (req, res) => {
         if (error) throw error;
 
         const {title, summary, content} = req.body;
-        const postDocument = await post.create({
+        const postDocument = await Post.create({
             title,
             summary,
             content,
@@ -32,4 +32,4 @@ const createPost = async (req, res) => {
     });
 }
 
-export default createPost;
+export default CreatePost;

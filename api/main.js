@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import "./databases/databases.js";
-import blogRoutes from "./routes/blog.js";
-import userRoutes from "./routes/user.js";
+import blogRoutes from "./routes/BlogRoute.js";
+import userRoutes from "./routes/UserRoute.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import "./databases/Database.js";
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';

@@ -1,8 +1,8 @@
-import post from "../../model/post.js"
+import Post from "../../model/Post.js"
 
-const getAllPost = async (req, res) => {
-    const posts = await post.find();
+const GetAllPost = async (req, res) => {
+    const posts = await Post.find();
     res.json(posts);
 }
 
-export default getAllPost;
+export default GetAllPost;

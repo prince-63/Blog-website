@@ -1,11 +1,10 @@
-import post from "../../model/post.js"
+import Post from "../../model/Post.js"
 
-const getPost = async (req, res) => {
+const GetPost = async (req, res) => {
     const id = req.params.id; // Assuming your parameter is named "id"
-    console.log(id);
 
     try {
-        const postDocument = await post.findById(id);
+        const postDocument = await Post.findById(id);
 
         if (!postDocument) {
             return res.status(404).json({ message: 'Post not found' });
@@ -18,4 +17,4 @@ const getPost = async (req, res) => {
     }
 }
 
-export default getPost;
+export default GetPost;

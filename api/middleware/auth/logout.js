@@ -5,7 +5,7 @@ dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-const logout = async (req, res) => {
+const Logout = async (req, res) => {
     const { token } = req.cookies;
 
     if (!token) {
@@ -18,4 +18,4 @@ const logout = async (req, res) => {
     })
 }
 
-export default logout;
+export default Logout;
