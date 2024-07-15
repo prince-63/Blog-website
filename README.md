@@ -1,4 +1,4 @@
-# Blog Website
+# Blog Application
 
 This project is a blog website designed to provide a platform for users to share their thoughts, ideas, and experiences. 
 
